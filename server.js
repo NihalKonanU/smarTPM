@@ -6,7 +6,10 @@ const cors = require('cors');  // Import CORS
 const app = express();
 const port = 3000;
 
-const PAT = '1G8X8Abs2Y8KvLM8GSkujuxxYoZqBo3evK2jQqMpTFv012R1abUrJQQJ99BCACAAAAAAArohAAASAZDO489R';  // Replace with actual PAT
+require('dotenv').config(); // Load local .env file (if running locally)
+
+const PAT = process.env.ADO_PAT || 'YOUR_LOCAL_PAT'; // Use Azure PAT if available
+  // Replace with actual PAT
 
 app.use(bodyParser.json());
 app.use(cors());  // Enable CORS
